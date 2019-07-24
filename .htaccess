@@ -1,0 +1,9 @@
+Options +FollowSymLinks -MultiViews -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/vulns/%{REQUEST_URI}.php -f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) vulns/$1.php [L]
